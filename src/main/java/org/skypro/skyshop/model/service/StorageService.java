@@ -10,14 +10,20 @@ import java.util.*;
 
 @Service
 public class StorageService {
-    Map<UUID, Product> productStorage;
-    Map<UUID, Article> articleStorage;
+    private final Map<UUID, Product> productStorage;
+    private final Map<UUID, Article> articleStorage;
 
     public StorageService(Map<UUID, Product> productStorage, Map<UUID, Article> articleStorage){
         this.articleStorage = new HashMap<>();
         this.productStorage = new HashMap<>();
         addSmth();
     }
+
+    public Optional<Product> getProductById(UUID id) {
+        return Optional.ofNullable(productStorage.get(id));
+    }
+
+
 
     private void addSmth(){
         Article article = new Article("Купил 'Молоко' и сру три метра против ветра!", "Надоумил же меня Бог купить молоко на сайте, предоставляющем услуги обучения...");
