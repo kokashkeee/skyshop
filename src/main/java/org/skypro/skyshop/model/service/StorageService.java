@@ -19,9 +19,9 @@ public class StorageService {
         addSmth();
     }
 
-    public Optional<Product> getProductById(UUID id) {
-        return Optional.ofNullable(productStorage.get(id));
-    }
+//    public Optional<Product> getProductById(UUID id) {
+//        return Optional.ofNullable(productStorage.get(id));
+//    }
 
 
 
