@@ -10,25 +10,30 @@ import java.util.*;
 
 @Service
 public class StorageService {
-    private final Map<UUID, Product> productStorage;
-    private final Map<UUID, Article> articleStorage;
+    private final HashMap<UUID, Product> productStorage;
+    private final HashMap<UUID, Article> articleStorage;
 
-    public StorageService(Map<UUID, Product> productStorage, Map<UUID, Article> articleStorage){
+    public StorageService(){
         this.articleStorage = new HashMap<>();
         this.productStorage = new HashMap<>();
         addSmth();
     }
 
-//    public Optional<Product> getProductById(UUID id) {
-//        return Optional.ofNullable(productStorage.get(id));
-//    }
+    public Optional<Product> getProductById(UUID id) {
+        return Optional.ofNullable(productStorage.get(id));
+    }
 
 
 
     private void addSmth(){
         Article article = new Article("Купил 'Молоко' и сру три метра против ветра!", "Надоумил же меня Бог купить молоко на сайте, предоставляющем услуги обучения...");
         Product product1 = new SimpleProduct("Сыр", 200);
-        productStorage.put(product1.getId(),product1);
+        Product product2 = new SimpleProduct("Молоко", 100);
+        Product product3 = new SimpleProduct("Хлеб", 50);
+
+        productStorage.put(product1.getId(), product1);
+        productStorage.put(product2.getId(), product2);
+        productStorage.put(product3.getId(), product3);
         articleStorage.put(article.getId(),article);
     }
 

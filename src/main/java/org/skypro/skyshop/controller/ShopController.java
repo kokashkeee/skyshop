@@ -44,18 +44,18 @@ public class ShopController {
         return searchService.search(pattern);
     }
 
-//    @GetMapping("/basket/{id}")
-//    public String addProduct(@PathVariable("id") UUID id) {
-//        try {
-//            basketService.addProductInBasket(id);
-//            return "Продукт успешно добавлен";
-//        } catch (IllegalArgumentException e) {
-//            return "Ошибка: " + e.getMessage();
-//        }
-//    }
-//
-//    @GetMapping("/basket")
-//    public UserBasket getUserBasket() {
-//        return basketService.getUserBasket();
-//    }
+    @GetMapping("/basket/{id}")
+    public String addProduct(@PathVariable("id") UUID id) {
+        try {
+            basketService.addProductInBasket(id);
+            return "Продукт успешно добавлен";
+        } catch (IllegalArgumentException e) {
+            return "Ошибка: " + e.getMessage();
+        }
+    }
+
+    @GetMapping("/basket")
+    public UserBasket getUserBasket() {
+        return basketService.getUserBasket();
+    }
 }
