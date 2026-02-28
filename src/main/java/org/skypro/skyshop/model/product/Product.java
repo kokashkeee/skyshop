@@ -12,11 +12,11 @@ public abstract class Product implements Searchable {
     protected UUID id;
 
     public Product(String name) {
+        if (name == null || name.isBlank()) {
+            throw new IllegalArgumentException(message);
+        }
         this.name = name;
         this.id = UUID.randomUUID();
-        if (name == null || name.isBlank()) {
-            throw new IllegalArgumentException("неверно указано имя товара");
-        }
     }
 
     public String getName() {
