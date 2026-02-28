@@ -1,6 +1,7 @@
 package org.skypro.skyshop.model.product;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.skypro.skyshop.exception.NoSuchProductException;
 import org.skypro.skyshop.model.search.Searchable;
 
 import java.util.Objects;
@@ -8,12 +9,11 @@ import java.util.UUID;
 
 public abstract class Product implements Searchable {
     protected String name;
-    protected String message = "неверно указано имя товара";
     protected UUID id;
 
     public Product(String name) {
         if (name == null || name.isBlank()) {
-            throw new IllegalArgumentException(message);
+            throw new NoSuchProductException();
         }
         this.name = name;
         this.id = UUID.randomUUID();
