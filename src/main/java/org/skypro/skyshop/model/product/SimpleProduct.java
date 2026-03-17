@@ -1,5 +1,7 @@
 package org.skypro.skyshop.model.product;
 
+import org.skypro.skyshop.exception.NoSuchProductException;
+
 public class SimpleProduct extends Product {
     private int price;
 
@@ -7,7 +9,7 @@ public class SimpleProduct extends Product {
         super(name);
         this.price = price;
         if (price<=0){
-            throw new IllegalArgumentException("неверно указана цена товара");
+            throw new NoSuchProductException();
         }
     }
 
